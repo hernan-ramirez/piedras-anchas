@@ -79,6 +79,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   };
 
   /* Add by HJR */
+  /* FIXME: Ver de arreglar el fullscreen para el slideshow de css */
+  /* FUTURE: Hacer que el fullscreen de las fotos puedan desplazarce de costado para ver la siguiente o anterior foto */
   app.pantallaCompleta = function (elemento) {
     if (screenfull.enabled) {
       if (elemento.classList.contains('fotoSlide')) {
@@ -88,6 +90,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
     }
 
-  }
+  };
 
 })(document);
