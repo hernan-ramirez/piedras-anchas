@@ -1,0 +1,33 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-styles/typography.html">
+<link rel="import" href="../bower_components/google-map/google-map.html">
+
+<dom-module id="posada-ubicacion">
+  <template>
+    <style include="shared-styles">
+      :host {}
+
+      google-map {
+        height: 600px;
+      }
+    </style>
+
+    <h3><iron-icon class="paper-icon-title" icon="maps:add-location"></iron-icon>UBICACION</h3>
+
+
+
+    <p>Se accede desde Villa de Las Rosas sur (Cba.) por RUTA 14, tomando el camino de tierra a San Javier. Recorra 3km y gire a la derecha en el cartel que indica Piedras Anchas. Llegará a la Posada 200 metros después.</p>
+    <p>Desde San Javier se llega por RUTA 1 hasta la indicación que señala "a Villa de las Rosas", camino de tierra que tomará y recorrerá aproximadamente 5km, en donde luego de pasar la Barranca de Los Loros, deberá doblar a la izquierda. Trescientos metros más adelante lo espera nuestra bienvenida. </p>
+    <p>También puede acceder desde Las Tapias, y fácilmente desde cualquier otro punto del país. </p>
+    <p>Llámenos y consulte, podremos guiarlo desde donde se encuentre e incluso acompañarlo desde algún pueblo cercano hasta la posada. </p>
+    <h4>Ubicación por GPS: 31º59'06.00" S 65º03'19.00 O</h4>
+    </p>
+
+  </template>
+
+  <script>
+    Polymer({
+      is: 'posada-ubicacion'
+    });
+  </script>
+</dom-module>

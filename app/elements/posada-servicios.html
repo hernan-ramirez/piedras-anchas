@@ -1,0 +1,80 @@
+<!--
+  Posada Info
+
+  Toma las fotos de facebook por json utilizando FQL
+  servicios = description (field) | description_html (field)
+
+  @docs https://developers.facebook.com/docs/graph-api/reference/page/
+  @request-to https://graph.facebook.com/fql
+
+  @autor Hernan Javier Ramirez
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-styles/typography.html">
+<link rel="import" href="../bower_components/iron-icons/places-icons.html">
+<link rel="import" href="../bower_components/iron-icons/icomoon-icons.html">
+
+<dom-module id="posada-servicios">
+  <template>
+    <style include="shared-styles">
+      :host {}
+
+      a {
+        display: inline-block;
+        margin-bottom: 10px;
+      }
+
+      paper-button {
+        background-color: #5C743D;
+        color: white;
+      }
+
+      paper-button:hover {
+        background-color: white !important;
+        color: #5C743D !important;
+      }
+    </style>
+
+    <h3><iron-icon class="paper-icon-title" icon="places:room-service"></iron-icon>SERVICIOS</h3>
+
+    <template is="dom-repeat" items="[[response.data]]">
+      <pre>[[item.description_html]]</pre>
+    </template>
+
+    <iron-ajax auto id="ajaxInfoPage" url="https://graph.facebook.com/fql" params='{{queryParams}}' handle-as="json" last-response="{{response}}"></iron-ajax>
+
+    <a href$="{{baseUrl}}quienes-somos">
+      <paper-button raised>
+        <iron-icon icon="communication:contacts"></iron-icon>Quienes Somos</paper-button>
+    </a>
+    <a href="https://www.facebook.com/piedrasanchas">
+      <paper-button raised>
+        <iron-icon icon="icomoon:facebook"></iron-icon>Seguinos en facebook</paper-button>
+    </a>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'posada-servicios',
+
+      properties: {
+        baseUrl: {
+          type: String,
+          value: "/"
+        },
+        queryParams: {
+          type: Object,
+          notify: true
+        }
+      },
+
+      ready: function () {
+        this.queryParams = {
+          q: "SELECT description_html, mission, price_range FROM page WHERE username='piedrasanchas'",
+          format: "json"
+        };
+      }
+    });
+  </script>
+</dom-module>

@@ -1,0 +1,50 @@
+<!--
+  Posada Info
+
+  Toma las fotos de facebook por json utilizando FQL
+  quienes-somos = mission (field)
+
+  @docs https://developers.facebook.com/docs/graph-api/reference/page/
+  @request-to https://graph.facebook.com/fql
+
+  @autor Hernan Javier Ramirez
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-styles/typography.html">
+
+<dom-module id="posada-quienes-somos">
+  <template>
+    <style include="shared-styles">
+      :host {}
+    </style>
+
+    <h3><iron-icon class="paper-icon-title" icon="communication:contacts"></iron-icon>QUIENES SOMOS</h3>
+
+    <template is="dom-repeat" items="[[response.data]]">
+      <pre>[[item.mission]]</pre>
+    </template>
+
+    <iron-ajax auto id="ajaxInfoPage" url="https://graph.facebook.com/fql" params='{{queryParams}}' handle-as="json" last-response="{{response}}"></iron-ajax>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'posada-quienes-somos',
+
+      properties: {
+        queryParams: {
+          type: Object,
+          notify: true
+        }
+      },
+
+      ready: function () {
+        this.queryParams = {
+          q: "SELECT general_info, mission, price_range FROM page WHERE username='piedrasanchas'",
+          format: "json"
+        };
+      }
+    });
+  </script>
+</dom-module>

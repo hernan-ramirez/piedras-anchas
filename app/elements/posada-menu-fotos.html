@@ -1,0 +1,135 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-styles/typography.html">
+
+<!-- Menu elements -->
+<link rel="import" href="../bower_components/paper-menu/paper-menu.html">
+<link rel="import" href="../bower_components/paper-menu/paper-submenu.html">
+<link rel="import" href="../bower_components/paper-item/paper-item.html">
+<link rel="import" href="../bower_components/iron-collapse/iron-collapse.html">
+
+<!-- Icon elements -->
+<link rel="import" href="../bower_components/iron-icon/iron-icon.html">
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../bower_components/iron-icons/editor-icons.html">
+<link rel="import" href="../bower_components/iron-icons/communication-icons.html">
+<link rel="import" href="../bower_components/iron-icons/maps-icons.html">
+<link rel="import" href="../bower_components/iron-icons/image-icons.html">
+
+<dom-module id="posada-menu-fotos">
+  <template>
+
+    <style is="custom-style">
+      :host {
+        margin: 10px;
+        align-content: center;
+        text-align: center;
+      }
+
+      paper-button {
+        color: #D5EDB3;
+        background-color: #5C743D;
+        display: block;
+        width: 100%;
+        text-align: center;
+      }
+
+      paper-button:hover {
+        color: #5C743D;
+        background-color: #D5EDB3;
+      }
+
+      iron-icon {
+        margin-left: 5px;
+        margin-right: 5px;
+      }
+
+      a {
+        display: block;
+        margin: 0;
+        padding: 0;
+        text-decoration: none;
+        text-rendering: optimizeLegibility;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20px;
+      }
+
+      paper-item {
+        --paper-item: {
+          cursor: pointer;
+        }
+        display: inline-block;
+        min-height: auto;
+        margin: 5px;
+        padding: 5px;
+      }
+    </style>
+
+    <paper-menu class="menu-content">
+
+      <paper-item>
+        <a href$="{{baseUrl}}fotos-slideshow/Presentación de la Posada/401654376575041">
+          <paper-button raised>
+            <iron-icon icon="image:slideshow"></iron-icon>Posada</paper-button>
+        </a>
+      </paper-item>
+
+
+
+      <paper-item>
+        <a href$="{{baseUrl}}fotos-slideshow/Presentación de las Habitaciones/595902577150219">
+          <paper-button raised>
+            <iron-icon icon="image:slideshow"></iron-icon>Habitaciones</paper-button>
+        </a>
+      </paper-item>
+
+
+      <paper-item>
+        <a href$="{{baseUrl}}fotos-slideshow/Presentación de la Galería *(falta album en face solo de la galeria)/123494251057723">
+          <paper-button raised>
+            <iron-icon icon="image:slideshow"></iron-icon>Galeria *</paper-button>
+        </a>
+      </paper-item>
+
+
+      <paper-item>
+        <a href$="{{baseUrl}}fotos-slideshow/Presentación del Lobby *(falta album en face solo del lobby)/123494251057723">
+          <paper-button raised>
+            <iron-icon icon="image:slideshow"></iron-icon>Lobby *</paper-button>
+        </a>
+      </paper-item>
+
+
+      <paper-item>
+        <a href$="{{baseUrl}}fotos-slideshow/Presentación de la Pileta *(falta album en face solo de la pile)/1000519380021868">
+          <paper-button raised>
+            <iron-icon icon="image:slideshow"></iron-icon>Pileta</paper-button>
+        </a>
+      </paper-item>
+
+
+      <paper-item>
+        <a href$="{{baseUrl}}fotos-slideshow/Presentación del Quincho/401667373240408">
+          <paper-button raised>
+            <iron-icon icon="image:slideshow"></iron-icon>Quincho</paper-button>
+        </a>
+      </paper-item>
+
+
+    </paper-menu>
+
+  </template>
+
+  <script>
+    Polymer({
+      is: 'posada-menu-fotos',
+
+      properties: {
+        baseUrl: {
+          type: String,
+          value: "/"
+        }
+      }
+    });
+  </script>
+</dom-module>

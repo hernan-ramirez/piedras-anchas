@@ -1,0 +1,35 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-styles/typography.html">
+
+<link rel="import" href="../styles/shared-styles.html">
+<link rel="import" href="posada-fotos.html">
+
+<dom-module id="posada-fotos-slideshow">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+        width: 100%;
+        min-height: 460px;
+      }
+
+      @media (max-width: 600px) {
+        :host {
+          min-height: 310px;
+        }
+      }
+    </style>
+
+    <posada-fotos id="fotoslide" album-id="{{albumId}}" clase-listado="Slide" limit="8"></posada-fotos>
+
+  </template>
+
+  <script>
+    Polymer({
+      is: 'posada-fotos-slideshow',
+      albumId: {
+        type: String
+      }
+    });
+  </script>
+</dom-module>

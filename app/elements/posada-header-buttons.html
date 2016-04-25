@@ -1,0 +1,57 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-styles/typography.html">
+<link rel="import" href="../bower_components/iron-icons/hardware-icons.html">
+
+<dom-module id="posada-header-buttons">
+  <template>
+    <style>
+      :host {}
+
+      a {
+        display: inline-block;
+      }
+
+      paper-button {
+        min-width: 60px;
+        background-color: #5C743D;
+        color: white;
+      }
+
+      paper-button:hover {
+        background-color: #ed6033 !important;
+        color: #5C743D !important;
+      }
+
+      @media (max-width: 600px) {
+        paper-button {
+          background-color: transparent;
+          color: #5C743D;
+          min-width: 30px;
+        }
+      }
+    </style>
+
+    <a href="mailto:info@posadapiedrasanchas.com.ar">
+      <paper-button>
+        <iron-icon icon="mail"></iron-icon>
+      </paper-button>
+    </a>
+    <a href="tel:+5403544494116">
+      <paper-button>
+        <iron-icon icon="hardware:phone-android"></iron-icon>
+      </paper-button>
+    </a>
+    <a href="https://goo.gl/maps/ekWz6T2HPKF2">
+      <paper-button>
+        <iron-icon icon="maps:place"></iron-icon>
+      </paper-button>
+    </a>
+
+  </template>
+
+  <script>
+    Polymer({
+      is: 'posada-header-buttons'
+    });
+  </script>
+</dom-module>

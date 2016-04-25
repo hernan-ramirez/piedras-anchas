@@ -1,0 +1,78 @@
+<!--
+  Posada Fotos
+  Toma las fotos de facebook por json utilizando FQL
+
+  @autor Hernan Javier Ramirez
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-styles/typography.html">
+
+<link rel="import" href="../styles/app-theme.html">
+<link rel="import" href="../styles/shared-styles.html">
+
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="../bower_components/iron-image/iron-image.html">
+
+<dom-module id="posada-fotos">
+  <template>
+    <style include="shared-styles">
+      :host {}
+    </style>
+    <!--<iron-image class$="image-sizing-cover foto[[claseListado]] foto[[claseListado]][[index]]" src$="[[item.src_big]]" sizing="cover" onclick="app.pantallaCompleta(this);"></iron-image>-->
+    <template is="dom-repeat" items="[[response.data]]">
+      <img class$="image-sizing-cover foto[[claseListado]] foto[[claseListado]][[index]]" src$="[[item.src_big]]" onclick="app.pantallaCompleta(this);">
+    </template>
+
+    <iron-ajax id="ajaxFotos" url="https://graph.facebook.com/fql" params='{{queryParams}}' handle-as="json" last-response="{{response}}"></iron-ajax>
+  </template>
+
+  <script>
+    /**
+     * Fotos de la posada en facebook.
+     *
+     * @param {albumId} IntString. ID del album en facebook.
+     * Fotos de la POSADA en general #401654376575041
+     * Fotos de las HABITACIONES #595902577150219
+     * Fotos del QUINCHO #401667373240408
+     *
+     * @param {limit} IntString. Limite para mostrar una, algunas o todo el album.
+     *
+     */
+    Polymer({
+      is: 'posada-fotos',
+
+      properties: {
+        queryParams: {
+          type: Object,
+          notify: true
+        },
+        albumId: {
+          type: String,
+          notify: true,
+          observer: '_genRequest'
+        },
+        limit: {
+          type: String,
+          value: "100"
+        },
+        claseListado: {
+          type: String,
+          value: "Listado"
+        }
+      },
+
+      _genRequest: function (newValue, oldValue) {
+        this._genParams();
+        this.$.ajaxFotos.generateRequest();
+      },
+
+      _genParams: function () {
+        this.queryParams = {
+          "q": "select src_big from photo where album_object_id=" + this.albumId + " order by created desc limit " + this.limit,
+          "format": "json"
+        };
+      }
+    });
+  </script>
+</dom-module>

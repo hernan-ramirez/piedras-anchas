@@ -1,0 +1,66 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-styles/typography.html">
+
+<dom-module id="posada-contactenos">
+  <template>
+    <style include="shared-styles">
+      :host {}
+
+      paper-button {
+        color: #ed6033;
+        text-align: left;
+      }
+
+      paper-button:hover {
+        background-color: #5C743D !important;
+        color: white !important;
+      }
+    </style>
+
+    <h3><iron-icon class="paper-icon-title" icon="communication:contact-mail"></iron-icon>CONTACTENOS</h3>
+    <p>
+      <a href$="{{baseUrl}}ubicacion">
+        <paper-button>
+          <iron-icon icon="maps:place"></iron-icon>Piedras Anchas S/N C.P.5885 - Villa de las Rosas (Dto. San Javier)</paper-button>
+      </a>
+    </p>
+    <p>
+      <a href="tel:+5403544494116">
+        <paper-button>
+          <iron-icon icon="communication:phone"></iron-icon>(03544)494-116</paper-button>
+      </a>
+    </p>
+    <p>
+      <a href="tel:+549354415575670">
+        <paper-button>
+          <iron-icon icon="hardware:phone-android"></iron-icon>(03544)15-575-670</paper-button>
+      </a>
+    </p>
+    <p>
+      <a href="mailto:info@posadapiedrasanchas.com.ar">
+        <paper-button>
+          <iron-icon icon="mail"></iron-icon>info@posadapiedrasanchas.com.ar</paper-button>
+      </a>
+    </p>
+    <p>
+      <a href$="{{baseUrl}}tarifas">
+        <paper-button>
+          <iron-icon icon="editor:attach-money"></iron-icon>Sepa nuestras tarifas aqui</paper-button>
+      </a>
+    </p>
+    <p>Somos operadores turísticos de Villa de las Rosas</p>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'posada-contactenos',
+
+      properties: {
+        baseUrl: {
+          type: String,
+          value: "/"
+        }
+      }
+    });
+  </script>
+</dom-module>
