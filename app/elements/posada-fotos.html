@@ -19,9 +19,9 @@
     <style include="shared-styles">
       :host {}
     </style>
-    <!--<iron-image class$="image-sizing-cover foto[[claseListado]] foto[[claseListado]][[index]]" src$="[[item.src_big]]" sizing="cover" onclick="app.pantallaCompleta(this);"></iron-image>-->
+
     <template is="dom-repeat" items="[[response.data]]">
-      <img class$="image-sizing-cover foto[[claseListado]] foto[[claseListado]][[index]]" src$="[[item.src_big]]" onclick="app.pantallaCompleta(this);">
+      <iron-image class$="image-sizing-cover foto[[claseListado]] foto[[claseListado]][[index]]" src$="[[item.src_big]]" sizing="cover" onclick="app.pantallaCompleta(this);"></iron-image>
     </template>
 
     <iron-ajax id="ajaxFotos" url="https://graph.facebook.com/fql" params='{{queryParams}}' handle-as="json" last-response="{{response}}"></iron-ajax>
